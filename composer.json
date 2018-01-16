@@ -1,0 +1,19 @@
+{
+    "name": "thiagosv/controller-pdo-query",
+    "description": "Biblioteca para utilizacao do pdo.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Thiago",
+            "email": "thiagosilvavieira97@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+          "ThiagoSV\\ControllerPDO\\": "/_app"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}
