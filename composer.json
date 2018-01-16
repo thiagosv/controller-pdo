@@ -1,5 +1,5 @@
 {
-    "name": "thiagosv/controller-pdo-query",
+    "name": "thiagosv/controller-pdo",
     "description": "Biblioteca para utilizacao do pdo.",
     "type": "library",
     "license": "MIT",
