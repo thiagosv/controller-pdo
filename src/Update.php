@@ -6,7 +6,7 @@
  *
  */
 
-namespace CRUD;
+namespace ThiagoSV\ControllerPDO;
 
 USE \PDOException;
 USE \PDO;
