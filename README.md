@@ -6,13 +6,13 @@ Para fazer a instalação da biblioteca, execute o seguinte comando:
 composer require thiagosv/controller-pdo-query
 ```
 
-Para fazer o uso da biblioteca, basta configurar os dados do banco no arquivo _app/Conn.php requerir o autoload do composer, invocar a classe e fazer a chamada do método:
+Para fazer o uso da biblioteca, basta configurar os dados do banco, existentes no arquivo src/Conn.php e requerir o autoload do composer, invocar a classe e fazer a chamada do método:
 
 ```sh
-	private static $Host = 'IP';
-    private static $User = 'USER';
-    private static $Pass = 'PASSWORD';
-    private static $Dbsa = 'DBSA';
+    private static $host = DATABASE['HOST'];
+    private static $user = DATABASE['USER'];
+    private static $pass = DATABASE['PASS'];
+    private static $name = DATABASE['NAME'];
 ```
 
 Uso das classes:
@@ -23,10 +23,10 @@ SELECT:
 
 require __DIR__ . '/vendor/autoload.php';
 
-USE pdoQuery\_app\Read;
+USE ThiagoSV\ControllerPDO\Read;
 
-$Read->ExeRead("table", "WHERE column1 = :param AND column2 = :param2", "param=value&param2=value2");
-$Read->FullRead("SELECT * FROM table WHERE column1 = :param AND column2 = :param2", "param=value&param2=value2");
+$Read->read("table", "WHERE column1 = :param AND column2 = :param2", "param=value&param2=value2");
+$Read->readFull("SELECT * FROM table WHERE column1 = :param AND column2 = :param2", "param=value&param2=value2");
 
 $Read->getResult(); **  **
 ```
@@ -36,9 +36,9 @@ UPDATE:
 
 require __DIR__ . '/vendor/autoload.php';
 
-USE pdoQuery\_app\Update;
+USE ThiagoSV\ControllerPDO\Update;
 
-$Update->ExeUpdate("tabela", ['value1' => 'value2'], "WHERE column1 = :param AND column2 = :param2", "param=value&param2=value2");
+$Update->update("tabela", ['value1' => 'value2'], "WHERE column1 = :param AND column2 = :param2", "param=value&param2=value2");
 
 $Update->getResult(); **  **
 ```
@@ -48,9 +48,9 @@ DELETE:
 
 require __DIR__ . '/vendor/autoload.php';
 
-USE pdoQuery\_app\Delete;
+USE ThiagoSV\ControllerPDO\Delete;
 
-$Delete->ExeDelete("table", "Query sem select", "param=value&param2=value2");
+$Delete->delete("table", "Query sem select", "param=value&param2=value2");
 
 $Delete->getResult(); **  **
 ```
@@ -60,9 +60,9 @@ Insert:
 
 require __DIR__ . '/vendor/autoload.php';
 
-USE pdoQuery\_app\Create;
+USE ThiagoSV\ControllerPDO\Create;
 
-$Insert->ExeCreate("table", ['column1' => 'value1', 'column2' => 'value2']);
+$Insert->create("table", ['column1' => 'value1', 'column2' => 'value2']);
 
 $Insert->getResult(); **  **
 ```
