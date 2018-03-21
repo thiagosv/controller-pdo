@@ -73,6 +73,23 @@ class QueryCreator{
     }
 
     /**
+     * @param $tabela1
+     * @param $tabela2
+     * @param $join
+     */
+    public function fromLeftJoin($tabela1, $tabela2 = NULL, $join){
+        if(!empty($this->from)){
+            if($tabela2):
+                $this->from .= " " . $tabela1 . " LEFT JOIN " . $tabela2 . " ON " . $join;
+            else:
+                $this->from .= " LEFT JOIN " . $tabela1 . " ON " . $join;
+            endif;
+        }else{
+            $this->from = " FROM " . $tabela1 . " LEFT JOIN " . $tabela2 . " ON " . $join;
+        }
+    }
+
+    /**
      * @param $where
      */
     public function where($where){
